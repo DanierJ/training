@@ -117,7 +117,8 @@ html {
     /* background-color: brown; */
 }
 
-.navigation-list {
+.navigation-list,
+.recent-works-list {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
@@ -185,4 +186,88 @@ html {
 
 .identity-section .heading-3 {
     margin: .7rem 0;
+}
+
+/* RECENT WORKS */
+
+.recent-works-content {
+    padding: 0 0 7rem 0;
+    text-align: center;
+}
+
+.recent-works {
+    display: grid;
+    grid-template-columns: repeat(3, 20rem);
+    grid-template-rows: repeat(2, 15rem);
+    gap: 5rem;
+    justify-content: center;
+}
+
+.section-title {
+    text-align: center;
+    padding: 3rem 0 7rem 0;
+}
+
+.recent-works-img {
+    width: 20rem;
+    height: 15rem;
+    display: inline-block;
+}
+
+.recent-works-menu{
+    display: flex;
+    justify-content: center;
+}
+
+
+.recent-works-list {
+    padding: 0 0 3rem 0;
+    width: 40rem;
+}
+
+.recent-works-button {
+    color: #fff;
+    background-color: #97d2a4;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.filled {
+    color: #97d2a4;
+    background-color: #fff;
+    margin-right: 2rem;
+}
+
+.bordered {
+    border: .2rem solid #fff;
+}
+
+.filled, .bordered {
+    border-radius: .4rem;
+}
+
+.recent-works-img:nth-child(1) {
+    grid-column:  1 / 2;
+}
+
+.recent-works-img:nth-child(2) {
+    grid-column: 2 / 3;
+}
+
+.recent-works-img:nth-child(3) {
+    grid-column: 3  / 4;
+}
+
+.recent-works-smbtn {
+    background-color: #fff;
+    color: #949090;
+    margin-top: 7rem;
+}
+
+.btn {
+    padding: 1rem 1rem;
+    border-radius: .3rem;
+    border: none;
 }
