@@ -271,3 +271,50 @@ html {
     border-radius: .3rem;
     border: none;
 }
+
+/* LAYERED SECTION */
+
+.layered-section-smbtn1 {
+    background-color: #97d2a4;
+    color: #fff;
+}
+
+.layered-section-smbtn2 {
+    background-color: #a8d4dd;
+    color: #fff;
+}
+
+.heading-3 {
+    font-size: 1.7rem;
+}
+
+.layered-section-info {
+    display: flex;
+    padding: 4rem 0;
+}
+
+.layered-section-img {
+    width: 20rem;
+    height: 15rem;
+    display: inline-block;
+}
+
+.layered-section-img-right {
+    margin-right: 2rem;
+}
+
+.layered-section-img-left{
+    margin-left: 2rem;
+}
+
+.layered-section-paragraph {
+    padding: 2rem 0;
+    font-size: 1.2rem;
+}
+
+.division {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
