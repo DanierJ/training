@@ -319,8 +319,8 @@ html {
 .division {
     border: 0;
     height: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: .1rem solid rgba(0, 0, 0, 0.1);
+    border-bottom: .1rem solid rgba(255, 255, 255, 0.3);
 }
 
 /* MEET OUR TEAM SECTION */
@@ -337,7 +337,7 @@ html {
 
 .meet-our-team-card-head,
 .recent-posts-card-head {
-    background-color: #f1f1f1;
+    background-color: #E8E9EA;
     height: 12rem;
     display: flex;
     justify-content: center;
@@ -376,6 +376,11 @@ html {
     text-align: center;
 }
 
+.recent-posts-img {
+    display: inline-block;
+    width: 5.5rem;
+    height: 5.5rem;
+}
 
 .recent-posts-card .heading-4 span {
     font-style: italic;
@@ -392,7 +397,12 @@ html {
 /* CONTACT US SECTION */
 
 .contact-us .section-title, .contact-us .heading-2{
-    color: #978c8c;
+    color: #D5D1D2;
+}
+
+.section-title-paragraph{
+    width: 35%;
+    margin: 0 auto;
 }
 
 .contact-us-form {
@@ -433,11 +443,15 @@ html {
 }
 
 .copy-text span {
-    color: darkgoldenrod;
+    color: #FBD67B;
 }
 
 .cta-smbtn {
     background-color: #fff;
     font-weight: bold;
     margin: 3rem 0 5rem 0;
+}
+
+.contact-us .division {
+    border-bottom: .1rem solid rgba(0, 0, 0, 0.3);
 }
