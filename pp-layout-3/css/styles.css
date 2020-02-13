@@ -208,6 +208,10 @@ html {
     padding: 3rem 0 7rem 0;
 }
 
+.section-title .heading-2 {
+    font-size: 3rem;
+}
+
 .recent-works-img {
     width: 20rem;
     height: 15rem;
@@ -267,8 +271,8 @@ html {
 }
 
 .btn {
-    padding: 1rem 1rem;
-    border-radius: .3rem;
+    padding: 2rem 2rem;
+    border-radius: .6rem;
     border: none;
 }
 
@@ -325,12 +329,14 @@ html {
     padding-bottom: 7rem;
 }
 
-.meet-our-team-card-list {
+.meet-our-team-card-list,
+.recent-posts-card-list {
     display: flex;
     justify-content: center;
 }
 
-.meet-our-team-card-head {
+.meet-our-team-card-head,
+.recent-posts-card-head {
     background-color: #f1f1f1;
     height: 12rem;
     display: flex;
@@ -338,7 +344,8 @@ html {
     align-items: center;
 }
 
-.meet-our-team-card-body {
+.meet-our-team-card-body,
+.recent-posts-card-body {
     background-color: #fff;
     padding: 2rem 1.5rem;
 }
@@ -356,4 +363,81 @@ html {
     display: block;
     font-size: 1rem;
     padding: .7rem 0;
+}
+
+/* RECENT POSTS SECTION */ 
+
+.recent-posts {
+    text-align: center;
+}
+
+.recent-posts-card {
+    margin-right: 3rem;
+    text-align: center;
+}
+
+
+.recent-posts-card .heading-4 span {
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.recent-posts-smbtn {
+    background-color: #fff;
+    color: #a8d4dd;
+    margin: 7rem;
+}
+
+
+/* CONTACT US SECTION */
+
+.contact-us .section-title, .contact-us .heading-2{
+    color: #978c8c;
+}
+
+.contact-us-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 45rem;
+}
+
+.contact-us-input {
+    margin-bottom: 2rem;
+}
+
+.contact-us-input, .contact-us-textarea {
+    border-radius: .5rem;
+    padding: 1.3rem 0;
+}
+
+.contact-us-input::placeholder, .contact-us-textarea::placeholder {
+    font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 2rem;
+}
+
+.cta {
+    text-align: center;
+}
+
+.copy {
+    display: flex;
+    padding: 3rem 0;
+}
+
+.copy-text {
+    font-size: 1.2rem;
+    color: darkgray;
+}
+
+.copy-text span {
+    color: darkgoldenrod;
+}
+
+.cta-smbtn {
+    background-color: #fff;
+    font-weight: bold;
+    margin: 3rem 0 5rem 0;
 }
