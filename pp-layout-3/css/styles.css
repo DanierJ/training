@@ -318,3 +318,42 @@ html {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+/* MEET OUR TEAM SECTION */
+
+.meet-our-team-content {
+    padding-bottom: 7rem;
+}
+
+.meet-our-team-card-list {
+    display: flex;
+    justify-content: center;
+}
+
+.meet-our-team-card-head {
+    background-color: #f1f1f1;
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meet-our-team-card-body {
+    background-color: #fff;
+    padding: 2rem 1.5rem;
+}
+
+.meet-our-team-card {
+    margin-right: 7rem;
+    text-align: center;
+}
+
+.heading-4 {
+    font-size: 1.8rem;
+}
+
+.heading-4 span {
+    display: block;
+    font-size: 1rem;
+    padding: .7rem 0;
+}
