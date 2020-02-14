@@ -292,20 +292,23 @@ html {
     background-color: #fff;
     color: #949090be;
     margin-top: 9rem;
-    font-size: 1.5rem;
-    font-weight: 500;
+   
 }
 
 .btn {
-    padding: 2.3rem 2.5rem;
+    padding: 2.1rem 2.2rem;
     border-radius: .6rem;
     border: none;
     cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 500;
 }
 
 /* LAYERED SECTION */
 
-
+.layered-section-content {
+    height: 66.2rem;
+}
 
 .layered-section-smbtn1,
 .layered-section-smbtn2 {
@@ -322,16 +325,25 @@ html {
 }
 
 .heading-3 {
-    font-size: 1.7rem;
+    font-size: 1.9rem;
+    color: rgba(0, 0, 0, .7);
 }
 
 .layered-section-info {
     display: flex;
-    padding: 4rem 0 6rem;
+}
+
+.layered-section-info:nth-child(1) {
+    padding: 5rem 0 8rem;
+}
+
+.layered-section-info:nth-of-type(2) {
+    padding: 7rem 0 8rem;
 }
 
 .layered-section-img {
-    width: 20rem;
+    width: 23.6rem;
+    height: 18.8rem;
     display: inline-block;
 }
 
@@ -345,9 +357,10 @@ html {
 
 .layered-section-paragraph {
     padding: 2rem 0;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: lighter;
-    width: 80%;
+    width: 85%;
+    color: rgba(0, 0, 0, .7);
 }
 
 .layered-section-paragraph-left {
