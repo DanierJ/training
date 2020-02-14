@@ -169,32 +169,46 @@ html {
 /* IDENTITY SECTION */
 
 .identity-section-img {
-    width: 11rem;
-    height: 9rem;
+    width: 12.7rem;
+    height: 10.4rem;
     display: inline-block;
 }
 
 .identity-section-item:nth-child(2) .identity-section-img {
-    width: 6rem;
+    width: 7.7rem;
+    height: 10.8rem;
+}
+
+.identity-section-item:nth-child(3) .identity-section-img {
+    width: 10.8rem;
 }
 
 .identity-section {
     display: flex;
     justify-content: space-between;
-    padding: 7rem 0;
+    align-items: center;
+    height: 39rem;
 }
 
 .identity-section-item {
     text-align: center;
     flex: 0 1 calc((100% - 18rem) / 3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .identity-section .heading-3 {
-    margin: .7rem 0;
+    font-size: 1.5rem;
+    margin: 1.9rem 0 1.5rem;
+    font-weight: 600;
 }
 
 .identity-section-paragraph {
-    color: rgba(131, 129, 129, 0.815);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: rgba(99, 94, 94, 0.801);
 }
 
 /* RECENT WORKS */
