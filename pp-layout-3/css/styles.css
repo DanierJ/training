@@ -216,23 +216,25 @@ html {
 .recent-works-content {
     /* padding: 0 0 7rem 0; */
     text-align: center;
+    height: 100rem;
 }
 
 .recent-works {
     display: grid;
-    grid-template-columns: repeat(3, 20rem);
-    grid-template-rows: repeat(2, 15rem);
-    gap: 5rem;
+    grid-template-columns: repeat(3, 26.4rem);
+    grid-template-rows: repeat(2, 19.8rem);
+    gap: 6rem;
     justify-content: center;
 }
 
 .section-title {
     text-align: center;
-    padding: 3rem 0 7rem 0;
+    padding: 4.5rem 0;
 }
 
 .section-title .heading-2 {
-    font-size: 3rem;
+    font-size: 4rem;
+    margin-bottom: .8rem;
 }
 
 .recent-works-img {
@@ -243,22 +245,23 @@ html {
 .recent-works-menu{
     display: flex;
     justify-content: center;
-    padding-bottom: 2rem;
+    padding-bottom: 2.3rem;
 }
 
 
 .recent-works-list {
     padding: 0 0 3rem 0;
-    width: 45rem;
+    width: 60rem;
 }
 
 .recent-works-button {
     color: #fff;
     background-color: #97d2a4;
     border: none;
-    padding: .6rem .6rem;
+    padding: 1rem 1rem;
     text-decoration: none;
     cursor: pointer;
+    font-size: 1.6rem;
 }
 
 
@@ -269,8 +272,8 @@ html {
 
 .filled, .bordered {
     margin-right: 1rem;
-    border-radius: .4rem;
-    border: .13rem solid #fff;
+    border-radius: .5rem;
+    border: .2rem solid #fff;
 }
 
 .recent-works-img:nth-child(1) {
@@ -287,15 +290,17 @@ html {
 
 .recent-works-smbtn {
     background-color: #fff;
-    color: #949090;
-    margin-top: 7rem;
+    color: #949090be;
+    margin-top: 9rem;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .btn {
-    padding: 2rem 2rem;
+    padding: 2.3rem 2.5rem;
     border-radius: .6rem;
     border: none;
-    margin: 7rem;
+    cursor: pointer;
 }
 
 /* LAYERED SECTION */
@@ -492,8 +497,9 @@ html {
 }
 
 .section-title-paragraph{
-    width: 35%;
+    width: 50%;
     margin: 0 auto;
+    font-size: 1.2rem;
 }
 
 .contact-us-form {
