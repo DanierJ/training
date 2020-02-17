@@ -388,19 +388,23 @@ html {
 
 
 .meet-our-team-card-list {
-    padding: 4rem 0 8rem;
+    padding: 4rem 0 9rem;
+}
+
+.meet-our-team .section-title {
+    padding: 5rem 0;
 }
 
 .meet-our-team-card-list,
 .recent-posts-card-list {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .meet-our-team-card-head,
 .recent-posts-card-head {
     background-color: #E8E9EA;
-    height: 16.2rem;
+    height: 17.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -410,21 +414,20 @@ html {
 .recent-posts-card-body,
 .meet-our-team-card-footer {
     background-color: #fff;
-    padding: 1rem 1rem;
+    /* padding: 1rem 1rem; */
 }
 
 .meet-our-team-card-body {
-    padding-bottom: .5rem;
+    padding: 1.8rem 2.3rem 1.4rem;
 }
 
 .mot-user-icon {
-    font-size: 4rem;
+    font-size: 6rem;
     color: #fff;
 }
 
 .mot-social-icon {
-    font-size: 2rem;
-    
+    font-size: 3.4rem;
 }
 
 .mot-social-icon:not(:nth-child(3)) {
@@ -444,26 +447,33 @@ html {
 }
 
 .meet-our-team-card {
-    flex: 0 1 calc((100% - 35rem) / 3);
+    flex: 0 1 calc((100% - 15.4rem) / 3);
     text-align: center;
 }
 
 .meet-our-team-card .heading-4 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     font-family: 'Tinos', serif;
     font-weight: bolder;
-    margin: .3em 0;
 }
 
 .heading-4 span {
     display: block;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.1rem;
-    padding: .3rem 0;
+    font-size: 1.6rem;
+    padding-top: .7rem;
 }
 
 .meet-our-team-card-paragraph {
     margin: 0 auto;
+    font-size: 1.5rem;
+    padding-top: 1.2rem;
+    color: rgba(0, 0, 0, .4);
+
+}
+
+.meet-our-team-logos {
+    padding-bottom: 1.8rem;
 }
 
 /* RECENT POSTS SECTION */ 
