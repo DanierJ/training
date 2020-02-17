@@ -142,7 +142,7 @@ html {
     padding: 1rem 1.2rem;
 }
 
-.navigation-link:hover {
+.navigation-link:hover, .navigation-link.active {
     border-radius: .7rem;
     background-color: #35484C;
     color: #a8d4dd;
