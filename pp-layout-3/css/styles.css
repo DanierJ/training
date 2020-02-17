@@ -44,15 +44,14 @@ html {
 /*  HEADER   */
 
 .header-content {
-    padding: 2rem 0 1rem 0;
-    height: 50rem;
+    /* padding: 4.5rem 0; */
 }
 
 .header-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem 0;
+    padding: 4rem 0;
 }
 
 .header-title {
@@ -61,7 +60,8 @@ html {
 }
 
 .header-title .heading {
-    font-size: 2.8rem;
+    font-size: 2.3rem;
+    align-self: flex-start;
 }
 
 .header-icon { 
@@ -79,12 +79,14 @@ html {
 
 .header-slice .heading {
     font-size: 2.5rem;
+    position: relative;
+    bottom: 3.2rem;
 }
 
 .header-img {
-    flex: 0 1 calc ((100% - 32rem) / 2);
+    /* flex: 0 1 calc ((100% - 32rem) / 2); */
     /* height: 25.8rem; */
-    display: inline-block;
+    /* display: inline-block; */
     margin-right: 10rem;
 }
 
@@ -111,11 +113,12 @@ html {
 
 
 .header-title {
-    flex: 0 1 43%;
+    flex: 0 1 44%;
 }
 
 .navigation {
     flex: 1;
+    align-self: flex-end;
 }
 
 
@@ -136,19 +139,20 @@ html {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.5rem;
-    padding: .7rem 1.2rem;
+    padding: 1rem 1.2rem;
 }
 
 .navigation-link:hover {
-    border-radius: .5rem;
+    border-radius: .7rem;
     background-color: #35484C;
     color: #a8d4dd;
-    padding: .7rem 1.2rem;
+    padding: 1rem 1.2rem;
 }
 
 .dot-boxes {
     display: flex;
     justify-content: center;
+    padding-bottom: 2.7rem;
 }
 
 .active-dot {
@@ -156,8 +160,8 @@ html {
 }
 
 .dot {
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     border: .2rem solid #fff;
 }
@@ -187,7 +191,8 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 39rem;
+    /* height: 39rem; */
+    padding: 7.5rem 0 9.8rem 0;
 }
 
 .identity-section-item {
@@ -216,7 +221,7 @@ html {
 .recent-works-content {
     /* padding: 0 0 7rem 0; */
     text-align: center;
-    height: 100rem;
+    /* height: 100rem; */
 }
 
 .recent-works {
@@ -250,8 +255,8 @@ html {
 
 
 .recent-works-list {
-    padding: 0 0 3rem 0;
-    width: 60rem;
+    padding: 3rem 0 3rem 0;
+    width: 65rem;
 }
 
 .recent-works-button {
@@ -291,7 +296,7 @@ html {
 .recent-works-smbtn {
     background-color: #fff;
     color: #949090be;
-    margin-top: 9rem;
+    margin: 9rem 0rem;
    
 }
 
@@ -376,8 +381,9 @@ html {
 
 /* MEET OUR TEAM SECTION */
 
-.meet-our-team-content {
-    padding-bottom: 7rem;
+
+.meet-our-team-card-list {
+    padding: 4rem 0 8rem;
 }
 
 .meet-our-team-card-list,
@@ -389,7 +395,7 @@ html {
 .meet-our-team-card-head,
 .recent-posts-card-head {
     background-color: #E8E9EA;
-    height: 12rem;
+    height: 16.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -433,14 +439,15 @@ html {
 }
 
 .meet-our-team-card {
-    flex: 0 1 calc((100% - 45rem) / 3);
+    flex: 0 1 calc((100% - 35rem) / 3);
     text-align: center;
 }
 
 .meet-our-team-card .heading-4 {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     font-family: 'Tinos', serif;
     font-weight: bolder;
+    margin: .3em 0;
 }
 
 .heading-4 span {
@@ -510,7 +517,7 @@ html {
 }
 
 .section-title-paragraph{
-    width: 50%;
+    width: 45%;
     margin: 0 auto;
     font-size: 1.2rem;
 }
