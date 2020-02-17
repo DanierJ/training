@@ -478,13 +478,27 @@ html {
 
 /* RECENT POSTS SECTION */ 
 
+
+
 .recent-posts {
     text-align: center;
 }
 
+.recent-posts .section-title {
+    padding: 6rem 0;
+}
+
 .recent-posts-card {
-    flex: 0 1 calc((100% - 10rem) / 3);
+    flex: 0 1 calc((100% - 6.6rem) / 3);
     text-align: center;
+}
+
+.recent-posts-card-head {
+    height: 14.5rem;
+}
+
+.recent-posts-card-body {
+    padding: 2.3rem 2.2rem;
 }
 
 .recent-posts-img {
@@ -494,26 +508,29 @@ html {
 }
 
 .recent-posts-card .heading-4 {
-    font-size: 1.5rem;
+    font-size: 2.15rem; 
 }
 
 .recent-posts-card .heading-4 span {
     font-style: italic;
     font-weight: lighter;
+    padding-bottom: 1.4rem;
+    color: rgba(0, 0, 0, .7);
+    font-size: 1.2rem;
 }
 
-.recent-posts-card-paragraph,
-.recent-posts-card-body .heading-4 span {
+.recent-posts-card-paragraph {
    color: rgba(131, 129, 129, 0.815);
 }
 
 .recent-posts-card-paragraph {
-    padding: 1.5rem 1rem;
+    font-size: 1.2rem;
 }
 
 .recent-posts-smbtn {
     background-color: #fff;
     color: #a8d4dd;
+    margin: 7rem 0;
 }
 
 
