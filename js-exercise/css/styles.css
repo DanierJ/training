@@ -1,0 +1,124 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: Helvetica;
+}
+
+body {
+    background-color: #e6e6e6;
+    height: 100vh;
+}
+.main{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 4.5rem 4rem;
+    font-size: 1.6rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    flex: 0 1 60rem
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+    border-bottom: .2rem solid #e6e6e685;
+}
+
+.heading-2 {
+    font-size: 2rem;
+    color: #787878;
+}
+
+
+.change-layout-btn {
+    border: .2rem solid #46b02c;
+    color: #46b02c;
+    padding: .5rem 1.2rem;
+    border-radius: .3rem;
+}
+
+.bad-request {
+    border: .2rem solid #c65353;
+    color:#c65353;
+    text-align: center;
+    margin: 1.6rem 0;
+    border-radius: .3rem;
+    padding: .9rem 0;
+    font-size: 1.4rem;
+
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn-submit {
+    border: none;
+    display: block;
+    background-color: #46b02c;
+    padding: 1.2rem 0;
+    color: #fff;
+    width: 100%;
+    border-radius: .3rem;
+    margin: 2rem 0;
+    font-size: 1.6rem;
+}
+
+.info-box {
+    padding: 2.5rem 0;
+    background-color: #fcf9d7;
+    text-align: center;
+    color: #787878;
+}
+
+.info-box-angle {
+    width: 10rem;
+    height: 6rem;
+    background-color: #fff;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.info-box-text {
+    margin-bottom: 1.8rem;
+}
+
+.form-group-label {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.form-group-input {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    border: .1rem solid #787878;
+    border-radius: .3rem;
+}
+
+.form-group {
+    flex: 0 1 calc((100% - 2rem) / 2);
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
