@@ -11,27 +11,29 @@
         <div class="container">
             <div class="title">
                 <h2 class="heading-2">Get angle º value with specific time.</h2>
-                <button class="btn change-layout-btn">Change Layout</button>
+                <button class="btn change-layout-btn" id="change-ly-btn">Change Layout</button>
             </div>
-            <div class="bad-request"><p class="paragraph">Bad Request</p></div>
-            <div class="form">
+            <div class="bad-request" id="alert"><p class="paragraph">Bad Request</p></div>
+            <div class="form" id="form">
                 <div class="form-group">
                     <label for="" class="form-group-label">Hours</label>
-                    <input type="text" name="" id="" class="form-group-input">
+                    <input type="number" name="" id="hours-input" class="form-group-input">
                 </div>
                 <div class="form-group">
                     <label for="" class="form-group-label">Minutes</label>
-                    <input type="text" name="" id="" class="form-group-input">
+                    <input type="number" name="" id="min-input" class="form-group-input">
                 </div>
             </div>
-            <button type="submit"   class="btn btn-submit">Send Information</button>
+            <button type="button"  class="btn btn-submit" id="submit-btn">Send Information</button>
             <div class="info-box">
-                <p class="info-box-text">Add hours and minutes to get an angle.</p>
+                <p class="info-box-text" id="box-info">Add hours and minutes to get an angle.</p>
                 <div class="info-box-angle">
-                    <p>0º</p>
+                    <p id="angle-info">0º</p>
                 </div>
             </div>
         </div>
     </main>
+
+    <script src="js/main.js" type="module"></script>
 </body>
 </html>
