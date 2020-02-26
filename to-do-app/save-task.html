@@ -1,28 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Save task</title>
+    <title>ToDo App</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/738131d77e.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header class="header">
       <div class="header-bg">
-        <div class="header-content">
-          <div class="header-info">
-            <h1 class="heading-1">ToDo List</h1>
-            <div class="to-do-info">
-              <p class="incompleted-tasks-info">4 Incompleted Tasks</p>
+        <div class="header-content row shadow p-5 d-flex align-items-center">
+          <div class="header-info d-flex align-items-center col-8 row">
+            <h1 class="heading-1 col-3">ToDo List</h1>
+            <div class="to-do-info p-2 text-center col-3">
+              <p class="incompleted-tasks-info ml-3">4 Incompleted Tasks</p>
               <p class="date">Thursday 06, June 2019</p>
             </div>
           </div>
-          <nav class="navigation">
-            <ul class="navigation-list">
-              <li class="navigation-item">
-                <a href="" class="navigation-link">Incompleted Tasks</a>
+          <nav class="navigation col-4">
+            <ul
+              class="navigation-list d-flex justify-content-end align-items-center row text-center"
+            >
+              <li class="navigation-item col-6">
+                <a href="#" class="navigation-link">Incompleted Tasks</a>
               </li>
               <li class="navigation-item">
-                <a href="" class="navigation-link">Completed Tasks</a>
+                <a href="#" class="navigation-link">Completed Tasks</a>
               </li>
             </ul>
           </nav>
@@ -31,28 +54,50 @@
     </header>
     <main class="main">
       <div class="main-content">
-        <form action="" class="form">
-          <h2 class="save-task-title">New Task</h2>
-          <div class="form-group">
-            <label for="title" class="form-group-label">Title</label>
-            <input type="text" class="form-group-input" id="title" />
-          </div>
-          <div class="form-group">
-            <label for="limit-date" class="form-group-label"></label>
-            <input type="text" class="form-group-input" id="limit-date" />
-          </div>
-          <div class="form-group">
-            <label for="description" class="form-group-label"
-              >Description</label
-            >
-            <textarea name="" id="description" cols="30" rows="10"></textarea>
-          </div>
-          <div class="form-group">
-            <button class="btn cancel-btn">Cancel</button>
-            <button class="btn save-btn">Create Task</button>
+        <form class="form shadow-md">
+          <div class="form-content form-row px-5 pb-4">
+            <h2 class="save-task-title col-12 heading-2">New Task</h2>
+            <div class="form-group col-6">
+              <label for="title">Title</label>
+              <input type="title" class="form-control" id="title" />
+            </div>
+            <div class="form-group col-6">
+              <label for="limit-date">Limit Date</label>
+              <input type="text" class="form-control" id="limit-date" />
+            </div>
+            <div class="form-group pt-2 col-12">
+              <label for="description">Description</label>
+              <textarea
+                class="form-control"
+                id="description"
+                rows="5"
+              ></textarea>
+            </div>
+            <div class="form-group col-12 pt-5 text-right">
+              <button class="btn cancel-btn">Cancel</button>
+              <button class="btn save-btn">Create Task</button>
+            </div>
           </div>
         </form>
       </div>
     </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
