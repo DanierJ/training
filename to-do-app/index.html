@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ToDo App</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/738131d77e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-bg">
+        <div class="header-content row shadow p-5 d-flex align-items-center">
+          <div class="header-info d-flex align-items-center col-8 row">
+            <h1 class="heading-1 col-3">ToDo List</h1>
+            <div class="to-do-info p-2 text-center col-3">
+              <p class="incompleted-tasks-info ml-3">4 Incompleted Tasks</p>
+              <p class="date">Thursday 06, June 2019</p>
+            </div>
+          </div>
+          <nav class="navigation col-4">
+            <ul
+              class="navigation-list d-flex justify-content-end align-items-center row text-center"
+            >
+              <li class="navigation-item col-6">
+                <a href="#" class="navigation-link active">Incompleted Tasks</a>
+              </li>
+              <li class="navigation-item">
+                <a href="#" class="navigation-link">Completed Tasks</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main-content">
+        <section class="tasks-list-section px-5 pt-0 text-right">
+          <button class="btn add-task my-4" id="add-task">Add Task</button>
+          <table class="tasks-table table shadow-md">
+            <thead class="table-head">
+              <tr class="table-row">
+                <th class="table-data"></th>
+                <th class="table-data">Task</th>
+                <th class="table-data">Complete by</th>
+                <th class="table-data">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr class="table-row">
+                <td class="table-data">
+                  <i class="far fa-check-circle"></i>
+                  <i class="far fa-times-circle"></i>
+                </td>
+                <td class="table-data">
+                  <a href="" class="task-title">Client Meeting</a>
+                </td>
+                <td class="table-data">08 May 2019</td>
+                <td class="table-data">
+                  <i class="fas fa-pencil-alt icon"></i>
+                  <i class="far fa-trash-alt icon"></i>
+                </td>
+              </tr>
+              <tr class="table-row">
+                <td class="table-data">
+                  <i class="far fa-check-circle"></i>
+                  <i class="far fa-times-circle"></i>
+                </td>
+                <td class="table-data">
+                  <a href="" class="task-title">
+                    Design App Interface
+                  </a>
+                </td>
+                <td class="table-data">08 May 2019</td>
+                <td class="table-data">
+                  <i class="fas fa-pencil-alt icon"></i>
+                  <i class="far fa-trash-alt icon"></i>
+                </td>
+              </tr>
+              <tr class="table-row">
+                <td class="table-data">
+                  <i class="far fa-check-circle"></i>
+                  <i class="far fa-times-circle"></i>
+                </td>
+                <td class="table-data">
+                  <a href="" class="task-title">
+                    Learn Node.js
+                  </a>
+                </td>
+                <td class="table-data">08 May 2019</td>
+                <td class="table-data">
+                  <i class="fas fa-pencil-alt icon"></i>
+                  <i class="far fa-trash-alt icon"></i>
+                </td>
+              </tr>
+              <tr class="table-row">
+                <td class="table-data">
+                  <i class="far fa-check-circle"></i>
+                  <i class="far fa-times-circle"></i>
+                </td>
+                <td class="table-data">
+                  <a href="" class="task-title">Bring The Puppy Out XD</a>
+                </td>
+                <td class="table-data">08 May 2019</td>
+                <td class="table-data">
+                  <i class="fas fa-pencil-alt icon"></i>
+                  <i class="far fa-trash-alt icon"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="task-preview-section">
+          <!-- <p class="text-center">Select a Task to preview it</p> -->
+          <div class="task-details px-5">
+            <div class="task-details-head d-flex pb-4">
+              <h2 class="task-details-title heading-2">Client Meeting</h2>
+              <div class="task-details-date ml-auto">
+                <p>Was completed on Wed 15, May 2019 at 02:00 p.m.</p>
+              </div>
+            </div>
+            <div class="task-details-body">
+              <p>
+                As a business owner or manager, the decision to opt for offshore
+                soOware development can be difficult. As anyone who has
+                experience knows, there are advantages and disadvantages to
+                outsourcing soOware development. How then, do you balance the
+                risks and rewards and come out on top? Here are five tips to
+                ensure that you receive an excellent return on investment
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
