@@ -171,7 +171,8 @@ table td {
 
 .add-task-btn,
 .save-btn,
-.cancel-btn {
+.cancel-btn,
+.delete-btn {
   background-color: var(--primary-col);
   color: var(--white);
   font-size: 1.6rem;
@@ -232,4 +233,28 @@ table td {
 
 .form-group-label {
   display: block;
+}
+
+.modal-header .modal-title {
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+.modal-body > p {
+  font-size: 1.6rem;
+  padding-bottom: 1.5rem;
+}
+
+.modal-footer .btn {
+  padding: 1rem 1rem;
+}
+
+.modal-footer .cancel-btn {
+  background-color: #6c757d;
+  color: var(--white);
+}
+
+.modal-content {
+  position: relative;
+  top: 10rem;
 }
