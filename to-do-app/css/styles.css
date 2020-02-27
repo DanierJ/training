@@ -36,7 +36,11 @@ body {
 .header-content {
   color: var(--white);
   font-size: 1.6rem;
-  padding: 2.5rem 0;
+  padding: 2rem 0;
+}
+
+.header-info {
+  padding-left: 0;
 }
 
 .to-do-info {
@@ -45,6 +49,7 @@ body {
 
 .navigation-list {
   list-style: none;
+  margin-bottom: 0;
 }
 
 .navigation-link {
@@ -257,4 +262,8 @@ table td {
 .modal-content {
   position: relative;
   top: 10rem;
+}
+
+.hidden {
+  display: none;
 }
