@@ -7,6 +7,7 @@ import (
 
 func NewRouter() *mux.Router {
 	r := mux.NewRouter().StrictSlash(true)
+	r.HandleFunc("/", controllers.GetTodos).Methods("GET")
 	r.HandleFunc("/todos", controllers.GetTodos).Methods("GET")
 	r.HandleFunc("/todos", controllers.PostTodo).Methods("POST")
 
