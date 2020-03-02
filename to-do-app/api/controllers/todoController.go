@@ -10,7 +10,15 @@ import (
 
 // GetTodos controller to find all todos
 func GetTodos(w http.ResponseWriter, r *http.Request) {
-	utils.ToJson(w, models.FindAll(), http.StatusOK)
+	todos, err := models.FindAll()
+
+	if err != nil {
+		utils.ToJson(w, err.Error(), http.StatusUnprocessableEntity)
+		return
+	}
+
+	utils.ToJson(w, todos, http.StatusOK)
+
 }
 
 // PostTodo controller to create a new Todo
@@ -31,5 +39,5 @@ func PostTodo(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.ToJson(w, "New todo created!", http.StatusCreated)
+	utils.ToJson(w, todo, http.StatusCreated)
 }

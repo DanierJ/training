@@ -19,9 +19,10 @@ func NewTodo(todo Todo) error {
 	return rs.Error
 }
 
-// Find finds all todos
-func FindAll() interface{} {
+// FindAll finds all todos
+func FindAll() (interface{}, error) {
 	db := Connect()
 	defer db.Close()
-	return db.Find(&[]Todo{}).Value
+	rs := db.Find(&[]Todo{})
+	return rs.Value, rs.Error
 }
