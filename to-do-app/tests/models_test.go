@@ -19,6 +19,8 @@ func TestAutoMigrations(t *testing.T) {
 }
 
 func TestNewTodoWithEmptyValues(t *testing.T) {
+	clearTable()
+
 	rs, err := models.NewTodo(models.Todo{Title: "", Description: ""})
 
 	if err == nil {
@@ -27,6 +29,8 @@ func TestNewTodoWithEmptyValues(t *testing.T) {
 }
 
 func TestNewTodoWithValidValues(t *testing.T) {
+	clearTable()
+
 	rs, err := models.NewTodo(models.Todo{Title: "Valid title", Description: "Valid description"})
 
 	if err != nil {
@@ -35,6 +39,7 @@ func TestNewTodoWithValidValues(t *testing.T) {
 }
 
 func TestNewTodoWithTooLongValues(t *testing.T) {
+	clearTable()
 	_, err := models.NewTodo(models.Todo{Title: "Tooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo long title", Description: "Tooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo long descrption"})
 
 	if errMsg := err.Error(); err != nil && errMsg != "Title is too long. Please write 30 char or less" {
@@ -43,6 +48,8 @@ func TestNewTodoWithTooLongValues(t *testing.T) {
 }
 
 func TestFindAll(t *testing.T) {
+	clearTable()
+	addTodos(5)
 	rs, err := models.FindAll()
 	if err != nil {
 		t.Errorf("Expected to have a slice of Todos. Got (%v) want (%v)", err, rs)
@@ -50,6 +57,8 @@ func TestFindAll(t *testing.T) {
 }
 
 func TestFindExistingTodoById(t *testing.T) {
+	clearTable()
+	addTodos(1)
 	todo, err := models.FindByID(1)
 
 	if err != nil {
@@ -59,6 +68,8 @@ func TestFindExistingTodoById(t *testing.T) {
 }
 
 func TestFindNonExistingTodoById(t *testing.T) {
+	clearTable()
+	addTodos(1)
 	todo, err := models.FindByID(100)
 
 	if err == nil {
