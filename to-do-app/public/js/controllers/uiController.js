@@ -18,7 +18,7 @@ export class UI {
         <td class="table-data">
           <a href="" class="task-title">${todo.title}</a>
           <input type="hidden" value="${todo.description}">
-          <input type="hidden" value="${todo.ID}">
+          <input type="hidden" value="${todo.id}">
         </td>
         <td class="table-data">08 May 2019</td>
         <td class="table-data">

@@ -6,12 +6,11 @@ import (
 
 func Run() {
 	models.AutoMigrations()
-	initTodos()
-	initServer(8080)
-
+	InitTodos()
+	InitServer("8080")
 }
 
-func initTodos() {
+func InitTodos() {
 	models.NewTodo(models.Todo{Title: "Client meeting", Description: "Meeting with a client"})
 	models.NewTodo(models.Todo{Title: "Design app interface", Description: "Desining app interface"})
 	models.NewTodo(models.Todo{Title: "Learn Node.js", Description: "Learning to code Node.js"})
