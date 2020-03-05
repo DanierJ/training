@@ -8,7 +8,7 @@ import (
 	"strconv"
 
 	"github.com/danierj/training/to-do-app/api/models"
-	"github.com/danierj/training/to-do-app/utils"
+	"github.com/danierj/training/to-do-app/api/utils"
 	"github.com/gorilla/mux"
 )
 
@@ -68,7 +68,7 @@ func setStatusCode(status int, err error) int {
 	if err != nil {
 		switch err.Error() {
 		case "Can't save empty data", "Title is too long. Please write 30 char or less":
-			return http.StatusBadRequest
+			return http.StatusUnprocessableEntity
 		case "record not found":
 			return http.StatusNotFound
 		}
