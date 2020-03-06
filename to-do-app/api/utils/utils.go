@@ -7,9 +7,9 @@ import (
 	"net/http"
 )
 
-func BodyParser(r *http.Request) []byte {
-	body, _ := ioutil.ReadAll(r.Body)
-	return body
+func BodyParser(r *http.Request) ([]byte, error) {
+	body, err := ioutil.ReadAll(r.Body)
+	return body, err
 }
 
 func ToJson(w http.ResponseWriter, data interface{}, statusCode int) {

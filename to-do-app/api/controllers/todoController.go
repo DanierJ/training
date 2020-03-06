@@ -2,8 +2,6 @@ package controllers
 
 import (
 	"encoding/json"
-	"errors"
-	"log"
 	"net/http"
 	"strconv"
 
@@ -14,7 +12,9 @@ import (
 
 // GetTodos controller to find all todos
 func GetTodos(w http.ResponseWriter, r *http.Request) {
-	todos, err := models.FindAll()
+	Todo := models.Todo{}
+
+	todos, err := Todo.FindAll()
 	status := setStatusCode(http.StatusOK, err)
 	utils.ToJson(w, todos, status)
 
@@ -22,26 +22,20 @@ func GetTodos(w http.ResponseWriter, r *http.Request) {
 
 // PostTodo controller to create a new Todo
 func PostTodo(w http.ResponseWriter, r *http.Request) {
-	body := utils.BodyParser(r)
-	var todo models.Todo
-	err := json.Unmarshal(body, &todo)
-
-	if err != nil {
-		utils.ToJson(w, err.Error(), http.StatusUnprocessableEntity)
-		return
-	}
-
-	t, err := models.NewTodo(todo)
-	status := setStatusCode(http.StatusCreated, err)
-
-	utils.ToJson(w, t, status)
+	saveTodo(w, r, -1, http.StatusCreated)
 }
 
 // GetTodo controller to get one Todo
 func GetTodo(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
-	id, _ := strconv.Atoi(params["id"])
-	t, err := models.FindByID(id)
+
+	todo := models.Todo{}
+	id := getID(w, r)
+
+	if id == 0 {
+		return
+	}
+
+	t, err := todo.FindByID(id)
 
 	status := setStatusCode(http.StatusOK, err)
 
@@ -51,15 +45,35 @@ func GetTodo(w http.ResponseWriter, r *http.Request) {
 
 // UpdateTodo controller to update Todo
 func UpdateTodo(w http.ResponseWriter, r *http.Request) {
-	err := errors.New("Not implemented")
-	log.Fatal(err)
+
+	id := getID(w, r)
+
+	if id == 0 {
+		return
+	}
+
+	saveTodo(w, r, int(id), http.StatusOK)
 
 }
 
 // DeleteTodo controller to delete Todo
 func DeleteTodo(w http.ResponseWriter, r *http.Request) {
-	err := errors.New("Not implemented")
-	log.Fatal(err)
+	var todo models.Todo
+
+	id := getID(w, r)
+
+	if id == 0 {
+		return
+	}
+
+	_, err := todo.DeleteTodo(id)
+
+	if err != nil {
+		utils.ToJson(w, err.Error(), http.StatusUnprocessableEntity)
+		return
+	}
+
+	utils.ToJson(w, nil, http.StatusNoContent)
 
 }
 
@@ -74,4 +88,43 @@ func setStatusCode(status int, err error) int {
 		}
 	}
 	return status
+}
+
+func saveTodo(w http.ResponseWriter, r *http.Request, id int, status int) {
+	body, err := utils.BodyParser(r)
+	if err != nil {
+		utils.ToJson(w, err.Error(), http.StatusUnprocessableEntity)
+		return
+	}
+
+	todo := models.Todo{}
+	err = json.Unmarshal(body, &todo)
+
+	if err != nil {
+		utils.ToJson(w, err.Error(), http.StatusUnprocessableEntity)
+		return
+	}
+	var savedTodo *models.Todo
+
+	if id > 0 { // UPDATE
+		savedTodo, err = todo.UpdateTodo(uint64(id))
+	}
+
+	savedTodo, err = todo.NewTodo()
+
+	status = setStatusCode(status, err)
+	utils.ToJson(w, savedTodo, status)
+
+}
+
+func getID(w http.ResponseWriter, r *http.Request) uint64 {
+	params := mux.Vars(r)
+	id, err := strconv.ParseUint(params["id"], 10, 64)
+
+	if err != nil {
+		utils.ToJson(w, err.Error(), http.StatusBadRequest)
+		return 0
+	}
+
+	return id
 }

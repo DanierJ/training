@@ -42,28 +42,11 @@ func TestGetTodos(t *testing.T) {
 }
 
 func TestCreateTodo(t *testing.T) {
-	clearTable()
-
 	payload := []byte(`{"title": "test todo", "description": "this is a test description"}`)
 
-	req, _ := http.NewRequest("POST", "/todos", bytes.NewBuffer(payload))
-	response := executeRequest(req)
+	expected := models.Todo{ID: 1, Title: "test todo", Description: "this is a test description"}
 
-	checkResponseCode(t, http.StatusCreated, response.Code)
-
-	var m map[string]interface{}
-	json.Unmarshal(response.Body.Bytes(), &m)
-
-	if m["title"] != "test todo" {
-		t.Errorf("Expected todo title to be 'test todo'. Got '%v'", m["title"])
-	}
-	if m["description"] != "this is a test description" {
-		t.Errorf("Expected todo title to be 'this is a test description'. Got '%v'", m["description"])
-	}
-
-	if m["id"] != 1.0 {
-		t.Errorf("Expected todo ID to be '1'. Got '%v'", m["id"])
-	}
+	saveTodo(t, payload, "POST", "/todos", expected, 1)
 
 }
 
@@ -98,6 +81,44 @@ func TestGetTodo(t *testing.T) {
 
 	if fetchedTodo["id"] != 1.0 {
 		t.Errorf("Expected todo #1 to be fetched. Got %v - Want %v", fetchedTodo, todos[0])
+	}
+
+}
+
+func TestUpdateTodo(t *testing.T) {
+
+	todoID := 6
+
+	payload := []byte(`{"title": "New title", "description": "New description"}`)
+
+	expected := models.Todo{ID: uint64(todoID), Title: "New title", Description: "New description"}
+
+	saveTodo(t, payload, "PATCH", "/todos/"+strconv.Itoa(6), expected, todoID)
+
+}
+
+func TestDeleteTodo(t *testing.T) {
+	clearTable()
+	initialTodos := 6
+	todoID := 4
+
+	addTodos(initialTodos)
+
+	var foundTodo models.Todo
+
+	req, _ := http.NewRequest("DELETE", "/todos/"+strconv.Itoa(todoID), nil)
+	response := executeRequest(req)
+
+	checkResponseCode(t, http.StatusNoContent, response.Code)
+
+	rs := db.Where("id = ?", todoID).First(&foundTodo)
+
+	if err := rs.Error; err != nil {
+		t.Logf(err.Error())
+	}
+
+	if foundTodo.ID == uint64(todoID) {
+		t.Errorf("Expected todo with ID (%v) not found", todoID)
 	}
 
 }
@@ -140,4 +161,45 @@ func addTodos(count int) []models.Todo {
 	}
 
 	return todos
+}
+
+func saveTodo(t *testing.T, payload []byte, method, url string, expected models.Todo, initialTodos int) {
+	clearTable()
+
+	var todos []models.Todo
+	var expectedStatus = http.StatusCreated
+
+	if method == "PATCH" {
+		todos = addTodos(initialTodos)
+		expectedStatus = http.StatusOK
+	}
+
+	req, err := http.NewRequest(method, url, bytes.NewBuffer(payload))
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	response := executeRequest(req)
+
+	checkResponseCode(t, expectedStatus, response.Code)
+
+	var m map[string]interface{}
+	json.Unmarshal(response.Body.Bytes(), &m)
+
+	if method == "PATCH" {
+		m["id"] = float64(todos[initialTodos-1].ID)
+	}
+
+	if m["title"] != expected.Title {
+		t.Errorf("Expected todo title to be 'test todo'. Got '%v'", m["title"])
+	}
+
+	if m["description"] != expected.Description {
+		t.Errorf("Expected todo title to be 'this is a test description'. Got '%v'", m["description"])
+	}
+
+	if m["id"] != float64(expected.ID) {
+		t.Errorf("Expected todo ID to be (%v). Got (%v)", m["id"], expected.ID)
+	}
 }

@@ -11,8 +11,15 @@ func Run() {
 }
 
 func InitTodos() {
-	models.NewTodo(models.Todo{Title: "Client meeting", Description: "Meeting with a client"})
-	models.NewTodo(models.Todo{Title: "Design app interface", Description: "Desining app interface"})
-	models.NewTodo(models.Todo{Title: "Learn Node.js", Description: "Learning to code Node.js"})
-	models.NewTodo(models.Todo{Title: "Bring the puppy out XD", Description: "Puppy needs to go out"})
+
+	var todos []models.Todo
+	todos = append(todos,
+		models.Todo{Title: "Client meeting", Description: "Meeting with a client"},
+		models.Todo{Title: "Design app interface", Description: "Desining app interface"},
+		models.Todo{Title: "Learn Node.js", Description: "Learning to code Node.js"},
+		models.Todo{Title: "Bring the puppy out XD", Description: "Puppy needs to go out"})
+
+	for _, todo := range todos {
+		todo.NewTodo()
+	}
 }
