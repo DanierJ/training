@@ -1,13 +1,16 @@
-package tests
+package models_test
 
 import (
 	"log"
 	"testing"
 
 	"github.com/danierj/training/to-do-app/api/models"
+	"github.com/danierj/training/to-do-app/api/utils"
+	"github.com/jinzhu/gorm"
 )
 
 var todo models.Todo
+var db *gorm.DB = models.Connect()
 
 func TestDBConnection(t *testing.T) {
 	if models.Connect() == nil {
@@ -22,7 +25,7 @@ func TestAutoMigrations(t *testing.T) {
 }
 
 func TestNewTodoWithEmptyValues(t *testing.T) {
-	clearTable()
+	utils.ClearTable(db)
 
 	todo = models.Todo{Title: "", Description: ""}
 
@@ -34,7 +37,7 @@ func TestNewTodoWithEmptyValues(t *testing.T) {
 }
 
 func TestNewTodoWithValidValues(t *testing.T) {
-	clearTable()
+	utils.ClearTable(db)
 
 	todo = models.Todo{Title: "Valid title", Description: "Valid description"}
 
@@ -46,7 +49,7 @@ func TestNewTodoWithValidValues(t *testing.T) {
 }
 
 func TestNewTodoWithTooLongValues(t *testing.T) {
-	clearTable()
+	utils.ClearTable(db)
 
 	todo = models.Todo{Title: "Tooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo long title", Description: "Tooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo long descrption"}
 
@@ -58,8 +61,8 @@ func TestNewTodoWithTooLongValues(t *testing.T) {
 }
 
 func TestFindAll(t *testing.T) {
-	clearTable()
-	addTodos(5)
+	utils.ClearTable(db)
+	utils.AddTodos(db, 5)
 	rs, err := todo.FindAll()
 	if err != nil {
 		t.Errorf("Expected to have a slice of Todos. Got (%v) want (%v)", err, rs)
@@ -67,8 +70,8 @@ func TestFindAll(t *testing.T) {
 }
 
 func TestFindExistingTodoById(t *testing.T) {
-	clearTable()
-	td := addTodos(1)
+	utils.ClearTable(db)
+	td := utils.AddTodos(db, 1)
 
 	todo, err := td[0].FindByID(1)
 
@@ -83,8 +86,8 @@ func TestFindExistingTodoById(t *testing.T) {
 }
 
 func TestFindNonExistingTodoById(t *testing.T) {
-	clearTable()
-	td := addTodos(1)
+	utils.ClearTable(db)
+	td := utils.AddTodos(db, 1)
 
 	todo, err := td[0].FindByID(100)
 
@@ -99,8 +102,8 @@ func TestFindNonExistingTodoById(t *testing.T) {
 }
 
 func TestUpdateExistingTodoWithValidValue(t *testing.T) {
-	clearTable()
-	td := addTodos(6) // Find todo
+	utils.ClearTable(db)
+	td := utils.AddTodos(db, 6) // Find todo
 
 	todo := models.Todo{ID: 5, Title: "New Title", Description: "New Description"}
 
@@ -121,8 +124,8 @@ func TestUpdateExistingTodoWithValidValue(t *testing.T) {
 }
 
 func TestUpdateExistingTodoWithEmptyValue(t *testing.T) {
-	clearTable()
-	addTodos(1) // Find todo
+	utils.ClearTable(db)
+	utils.AddTodos(db, 1) // Find todo
 
 	todo := models.Todo{ID: 1, Title: "", Description: ""}
 
@@ -135,8 +138,8 @@ func TestUpdateExistingTodoWithEmptyValue(t *testing.T) {
 }
 
 func TestDeleteExistingTodo(t *testing.T) {
-	clearTable()
-	td := addTodos(6)
+	utils.ClearTable(db)
+	td := utils.AddTodos(db, 6)
 
 	ra, err := todo.DeleteTodo(td[0].ID)
 	rowsAffected, ok := ra.(int64)
@@ -158,7 +161,7 @@ func TestDeleteExistingTodo(t *testing.T) {
 }
 
 func TestDeleteNonExistingTodo(t *testing.T) {
-	clearTable()
+	utils.ClearTable(db)
 
 	ra, err := todo.DeleteTodo(1)
 

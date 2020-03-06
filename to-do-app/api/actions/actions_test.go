@@ -1,4 +1,4 @@
-package tests
+package actions_test
 
 import (
 	"bytes"
@@ -12,6 +12,7 @@ import (
 	"github.com/danierj/training/to-do-app/api"
 	"github.com/danierj/training/to-do-app/api/models"
 	"github.com/danierj/training/to-do-app/api/routes"
+	"github.com/danierj/training/to-do-app/api/utils"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
 )
@@ -20,7 +21,7 @@ var r *mux.Router = routes.NewRouter()
 var db *gorm.DB = models.Connect()
 
 func TestGetTodos(t *testing.T) {
-	clearTable()
+	utils.ClearTable(db)
 
 	api.InitTodos()
 
@@ -51,7 +52,7 @@ func TestCreateTodo(t *testing.T) {
 }
 
 func TestEmptyTable(t *testing.T) {
-	clearTable()
+	utils.ClearTable(db)
 
 	req, _ := http.NewRequest("GET", "/todos", nil)
 	response := executeRequest(req)
@@ -68,8 +69,8 @@ func TestEmptyTable(t *testing.T) {
 }
 
 func TestGetTodo(t *testing.T) {
-	clearTable()
-	var todos = addTodos(1)
+	utils.ClearTable(db)
+	var todos = utils.AddTodos(db, 1)
 
 	req, _ := http.NewRequest("GET", "/todos/1", nil)
 	response := executeRequest(req)
@@ -98,11 +99,11 @@ func TestUpdateTodo(t *testing.T) {
 }
 
 func TestDeleteTodo(t *testing.T) {
-	clearTable()
+	utils.ClearTable(db)
 	initialTodos := 6
 	todoID := 4
 
-	addTodos(initialTodos)
+	utils.AddTodos(db, initialTodos)
 
 	var foundTodo models.Todo
 
@@ -142,35 +143,14 @@ func ensureTableExists(tableName string) {
 	}
 }
 
-func clearTable() {
-	db.DropTableIfExists(&models.Todo{})
-	db.AutoMigrate(&models.Todo{})
-}
-
-func addTodos(count int) []models.Todo {
-	var todos []models.Todo
-
-	if count < 1 {
-		count = 1
-	}
-
-	for i := 0; i < count; i++ {
-		todos = append(todos, models.Todo{Title: "Todo #" + strconv.Itoa(i+1), Description: "This is the todo #" + strconv.Itoa(i+1)})
-
-		db.Create(&todos[i])
-	}
-
-	return todos
-}
-
 func saveTodo(t *testing.T, payload []byte, method, url string, expected models.Todo, initialTodos int) {
-	clearTable()
+	utils.ClearTable(db)
 
 	var todos []models.Todo
 	var expectedStatus = http.StatusCreated
 
 	if method == "PATCH" {
-		todos = addTodos(initialTodos)
+		todos = utils.AddTodos(db, initialTodos)
 		expectedStatus = http.StatusOK
 	}
 
